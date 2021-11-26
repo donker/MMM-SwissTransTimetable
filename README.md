@@ -1,4 +1,4 @@
-# Teslamate Location
+# Swiss Transport Timetable
 
 This is a [MagicMirror](https://github.com/MichMich/MagicMirror/) module showing a
 station departure or arrival board of any station in Switzerland (including bus stops).
