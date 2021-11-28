@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "../app/App";
+import Timetable from "../app/Timetable";
 
 interface MMTestProps {
   stationName: string;
@@ -17,23 +17,21 @@ Module.register<MMTestProps>("MMM-SwissTransTimetable", {
 
   getDom: function () {
     const container = document.createElement("div");
-    container.classList.add("testapp");
+    container.classList.add("swiss-trans-timetable");
     return container;
   },
 
   notificationReceived: function (notification, payload, sender) {
     if (notification === "DOM_OBJECTS_CREATED") {
-      const mainDivs = document.getElementsByClassName("testapp");
+      const mainDivs = document.getElementsByClassName("swiss-trans-timetable");
       if (mainDivs.length > 0) {
-        const sub = document.createElement("div");
-        mainDivs[0].appendChild(sub);
         ReactDOM.render(
-          <App
+          <Timetable
             stationName={this.config.stationName}
             limit={this.config.nrLines}
             departure={this.config.departure}
           />,
-          sub
+          mainDivs[0]
         );
       }
     }
